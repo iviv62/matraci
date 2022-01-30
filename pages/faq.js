@@ -1,6 +1,6 @@
 import React from 'react'
-import Accordeon from '../components/accordeon'
-import Contacts from '../components/Cards/Contacts'
+import Accordeon from '../components/Accordeon'
+import Contacts from '../components/cards/Contacts'
 import {API} from '../settings/constants'
 
 
