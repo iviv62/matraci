@@ -230,7 +230,7 @@ const category = ({ data, sizes, rigidities, manufacturers, productTypes, kernel
         
 
       </div  >
-      <div className=' flex justify-center py-10 md:ml-32 sm:ml-0' >
+      <div className=' flex justify-center py-10 ' >
         <div className="btn-group ">
           {data.current - 1 != 0 && (<button onClick={() => previous()} className="btn btn-outline">Previous</button>)}
           {data.current != 1 && (<button onClick={() => initialPage()} className="btn btn-outline">{1}</button>)}
