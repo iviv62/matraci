@@ -6,9 +6,24 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "latest",
+    "@apollo/client": "^3.4.16",
+    "@headlessui/react": "^1.4.1",
+    "@trendyol-js/react-carousel": "^2.0.0",
+    "axios": "^0.24.0",
+    "daisyui": "^1.14.2",
+    "embla-carousel": "^5.0.1",
+    "embla-carousel-react": "^5.0.1",
+    "graphql": "^15.6.1",
+    "js-cookie": "^3.0.1",
+    "keen-slider": "^5.5.1",
+    "next": "^12.0.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-cool-dimensions": "^2.0.7",
+    "react-dom": "^17.0.2",
+    "react-html-parser": "^2.0.2",
+    "react-icons-kit": "^2.0.0",
+    "react-paginate": "^7.1.5",
+    "swiper": "^7.0.7"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
