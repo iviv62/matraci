@@ -99,11 +99,11 @@ export default withRouter(blog)
 
 
 export const getServerSideProps = async ({query}) =>{
-    console.log(query)
+   
     const page = query.page || 1; //if page empty we request the first page
     let res  = await fetch(`${API}post/?page=${page}`)
     const data = await res.json();
-    console.log(data)
+    
     return{
       props:{
         data:data,   

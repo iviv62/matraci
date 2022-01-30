@@ -60,7 +60,7 @@ const HomeSwiper = ({data}) => {
             {data.map(banner=>
            
             <a href={banner.link} key={banner.id} className="keen-slider__slide cursor-pointer">
-            <Image src={banner.image} priority={true} alt={banner.alt} layout="fill" objectFit="fill"    className=""    />
+            <Image src={banner.image} priority={true} quality={70} alt={banner.alt} layout="fill" objectFit="fill"    className=""    />
             </a>
            
             )}

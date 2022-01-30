@@ -277,31 +277,20 @@ export const getServerSideProps = async ({ query }) => {
 
 
 
-  //fetch filters
-  let res1 = await fetch(`${API}product-sizes/?category=${slug}`)
-  const sizes = await res1.json()
-
-  let res2 = await fetch(`${API}product-rigidities`)
-  const rigidities = await res2.json()
-
-  let res3 = await fetch(`${API}manufacturers`)
-  const manufacturers = await res3.json()
-
-  let res4 = await fetch(`${API}product-types/?category__slug=${slug}`)
-  const productTypes = await res4.json()
-
-  let res5 = await fetch(`${API}kernels`)
-  const kernels = await res5.json()
+  //fetch filters 
+  let resAll = await fetch(`${API}filter/?category=${slug}`)
+  const all = await resAll.json()
+  
 
 
   return {
     props: {
       data: data,
-      sizes: sizes,
-      rigidities: rigidities,
-      manufacturers: manufacturers,
-      productTypes: productTypes,
-      kernels:kernels
+      sizes: all.sizes,
+      rigidities: all.rigidity,
+      manufacturers: all.manufacturers,
+      productTypes: all._type,
+      kernels:all.kernel
     },
 
   }
