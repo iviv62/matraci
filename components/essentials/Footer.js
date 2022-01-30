@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import {API} from '../../settings/constants'
-import Cookies from 'js-cookie';
+
 import { Icon } from 'react-icons-kit'
 import {phone} from 'react-icons-kit/fa/phone'
 import axios from 'axios';

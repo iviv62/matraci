@@ -4,7 +4,7 @@ import {API} from "../../settings/constants"
 import ReactHtmlParser from 'react-html-parser';
 
 const article = ({post}) => {
-    console.log(post)
+  
     return (
         <div className="flex flex-col min-h-screen">
         <Head>

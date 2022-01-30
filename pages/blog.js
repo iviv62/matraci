@@ -1,11 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import ArticleCard from '../components/cards/ArticleCard'
 import axios from 'axios';
-import ReactPaginate from 'react-paginate';
+
 import Router, { withRouter } from 'next/router';
 import {API} from "../settings/constants";
 import Head from 'next/head'
-import Link from 'next/link';
+
 const blog = ({data,props}) => {
    
 
