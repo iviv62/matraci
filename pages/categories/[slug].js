@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Router, { withRouter, useRouter } from 'next/router';
-import { API } from "../settings/constants"
-import ProductCard from "../components/cards/ProductCard"
-import DesktopFilter from '../components/essentials/DesktopFilter';
-import MobileFilter from '../components/essentials/MobileFilter';
+import { API } from "../../settings/constants"
+import ProductCard from "../../components/cards/ProductCard"
+import DesktopFilter from '../../components/essentials/DesktopFilter';
+import MobileFilter from '../../components/essentials/MobileFilter';
 import Image from 'next/image';
 import { useReactiveVar } from '@apollo/client';
-import { filterValues } from '../settings/cache';
+import { filterValues } from '../../settings/cache';
 import { filter } from 'react-icons-kit/fa/filter';
-import Loader from '../components/essentials/Loader';
+import Loader from '../../components/essentials/Loader';
 
 
 const category = ({ data, sizes, rigidities, manufacturers, productTypes, kernels }) => {
@@ -40,7 +40,7 @@ const category = ({ data, sizes, rigidities, manufacturers, productTypes, kernel
     query["page"] = data.current - 1
 
     Router.push({
-      pathname: `/${slug}`,
+      pathname: `/categories/${slug}`,
       query: query
     })
 
@@ -69,7 +69,7 @@ const category = ({ data, sizes, rigidities, manufacturers, productTypes, kernel
     query["page"] = data.total_pages
 
     Router.push({
-      pathname: `/${slug}`,
+      pathname: `/categories/${slug}`,
       query: query
     })
   }
@@ -124,7 +124,7 @@ const category = ({ data, sizes, rigidities, manufacturers, productTypes, kernel
     query["page"] = 1
 
     Router.push({
-      pathname: `/${slug}`,
+      pathname: `/categories/${slug}`,
       query: query
     })
 
@@ -154,14 +154,10 @@ const category = ({ data, sizes, rigidities, manufacturers, productTypes, kernel
     }
     if (filterArray.length > 0) {
       Router.push({
-        pathname: `/${slug}`,
+        pathname: `/categories/${slug}`,
         query: query
       })
     }
-
-
-
-
 
   }, [filterArray]);
 
@@ -255,10 +251,14 @@ const category = ({ data, sizes, rigidities, manufacturers, productTypes, kernel
 export default withRouter(category);
 
 
-export const getServerSideProps = async ({ query }) => {
+export const getServerSideProps = async ({res,resp, query }) => {
 
   const { slug } = query
-  console.log(query)
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  )
+ 
 
 
   const page = query.page || 1
@@ -272,8 +272,8 @@ export const getServerSideProps = async ({ query }) => {
   //page building
   let uri = `${API}products/?category=${slug}&page=${page}&size=${size}&rigidity__id__in=${rigidity}&manufacturer__id__in=${manufacturer}&kernel__id__in=${kernel}&producttype=${type}`
   uri = encodeURI(uri)
-  let res = await fetch(uri)
-  const data = await res.json();
+  let res1 = await fetch(uri)
+  const data = await res1.json();
 
 
 

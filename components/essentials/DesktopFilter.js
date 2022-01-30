@@ -15,7 +15,7 @@ const DesktopFilter = ({Sizes,Rigidities,Manufacturers,Types, Kernels}) => {
     filterValues([])
     document.querySelectorAll('.filter-input').forEach( el => el.checked = false );
     Router.push({
-      pathname: `/${slug}`,   
+      pathname: `/categories/${slug}`,   
       })
   }
   
